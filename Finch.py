@@ -30,7 +30,7 @@ def exactfit(values, maxValue):
         index_1 = 0
         bin.append(values.pop(index_1))
         waste = 0
-        if bin.sum <= (maxValue / 3):
+        if bin.sum <= (maxValue / 3) or sum(values) >= (maxValue/3):
             for item in values:
                 # print(item)
                 if bin.sum + item > (maxValue / 3) and bin.sum + item <= maxValue:

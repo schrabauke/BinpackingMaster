@@ -65,11 +65,15 @@ def oneitemfit(waste, values, maxValue, bin, bins):
 ergebtniss = oneitemfit(0, values, 11, bin, bins)
 #######################################################################################
 ################so gehts :D########################
+aList = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1,4,5,6,7,3,4,5]
+values = aList
+maxValue = 10
+index_1 = 0
+index_2 = 0
+index_3 = 0
 
         bin = Bin()
         index_1 = 0
-        bin.append(values.pop(index_1))
-        waste = 0
 bins = []
 
 bin = Bin()
@@ -85,7 +89,7 @@ while bin.sum != maxValue or waste == 15:
     else:
         waste += 1;
 
-
+exactfit(values, maxValue)
 
 # ###Test with ausgekoppelten versionen
 def oneitemfit(waste, values, maxValue, bin, bins):
@@ -185,5 +189,5 @@ while (i < 6 ):
     i = i + 1
 
 
-
-
+text1 = False
+exactfit(values, maxValue)
