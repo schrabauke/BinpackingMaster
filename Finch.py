@@ -1,4 +1,3 @@
-
 import pdb
 from Binpacking.oneitemfit import oneitemfit
 from Binpacking.threeitemfit import threeitemfit
@@ -6,6 +5,8 @@ from Binpacking.twoitemfit import twoitemfit
 
 __author__ = 'Schrabauke'
 from Binpacking.bin import Bin
+
+
 class BreakIt(Exception): pass
 
 # Uses
@@ -25,30 +26,38 @@ def exactfit(values, maxValue):
     # ##### Step 0: ######
     values = sorted(values, reverse=True)
     bins = []
-    while len(values) != 0:
+    while sum(values) >= (maxValue /3) :
+        print("Beginn of the loop")
         bin = Bin()
         index_1 = 0
         bin.append(values.pop(index_1))
-        waste = 0
-        if bin.sum <= (maxValue / 3) or sum(values) >= (maxValue/3):
+        if bin.sum <= (maxValue / 3):
             for item in values:
                 # print(item)
                 if bin.sum + item > (maxValue / 3) and bin.sum + item <= maxValue:
                     bin.append(item)
                     values.remove(item)
                     break
-                    # Step 2: fill the bin with 1, 2 or 3 items plus waste if needed
+        # Step 2: fill the bin with 1, 2 or 3 items plus waste if needed
         else:
-            bin = Bin()
+            print ( "Start the helperfunction ")
+            #  bin = Bin()
             waste = 0;
             while bin.sum != maxValue or waste == 15:
                 print("Waste ", waste)
                 if (oneitemfit(waste, values, maxValue, bin, bins) == True):
                     break;
-                elif (twoitemfit(waste, values, maxValue , bin , bins) == True):
+                elif (twoitemfit(waste, values, maxValue, bin, bins) == True):
                     break;
-                elif (threeitemfit(waste, values, maxValue , bin, bins) == True):
+                elif (threeitemfit(waste, values, maxValue, bin, bins) == True):
                     break
                 else:
                     waste += 1;
-    return bins
+    else:
+        if len(values) == 0:
+            return bins
+        else:
+            bin = Bin()
+            for item in values:
+                bin.append(item)
+        return bins

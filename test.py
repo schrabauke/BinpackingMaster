@@ -89,7 +89,7 @@ while bin.sum != maxValue or waste == 15:
     else:
         waste += 1;
 
-exactfit(values, maxValue)
+test = exactfit(values, maxValue)
 
 # ###Test with ausgekoppelten versionen
 def oneitemfit(waste, values, maxValue, bin, bins):
@@ -191,3 +191,5 @@ while (i < 6 ):
 
 text1 = False
 exactfit(values, maxValue)
+
+test = exactfit(data, binsize)

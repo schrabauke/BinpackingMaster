@@ -12,7 +12,7 @@ def threeitemfit(waste, values, maxValue, bin, bins):
                 while (index_2 <= len(values) - 2):
                     index_3 = index_2 + 1
                     while (index_3 <= len(values) - 1):
-                        print(index_1, index_2, index_3)
+                      #  print(index_1, index_2, index_3)
                         item_a = values[index_1]
                         item_b = values[index_2]
                         item_c = values[index_3]

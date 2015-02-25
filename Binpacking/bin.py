@@ -165,7 +165,8 @@ if __name__ == '__main__':
 
         # bins = bestfit(aList,maxValue)
         # bins = firstpack(aList, maxValue)
-        bins = firstfit(aList, maxValue)
+        bins = exactfit(aList, maxValue)
+        #f.write("%s\n" % len(bins))
         # num = len(bins)
         print(len(bins))
         # auswertung.write('Solution using' + len(bins) + 'bins:' + 'Elements' + elements,)
