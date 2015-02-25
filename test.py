@@ -65,7 +65,7 @@ def oneitemfit(waste, values, maxValue, bin, bins):
 ergebtniss = oneitemfit(0, values, 11, bin, bins)
 #######################################################################################
 ################so gehts :D########################
-aList = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1,4,5,6,7,3,4,5]
+aList = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1,10,9,5,5,7,8,7,6,2,2]
 values = aList
 maxValue = 10
 index_1 = 0

@@ -43,7 +43,7 @@ def exactfit(values, maxValue):
             print ( "Start the helperfunction ")
             #  bin = Bin()
             waste = 0;
-            while bin.sum != maxValue or waste == 15:
+            while bin.sum != maxValue or waste < maxValue:
                 print("Waste ", waste)
                 if (oneitemfit(waste, values, maxValue, bin, bins) == True):
                     break;
