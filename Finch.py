@@ -26,7 +26,7 @@ def exactfit(values, maxValue):
     # ##### Step 0: ######
     values = sorted(values, reverse=True)
     bins = []
-    while sum(values) >= (maxValue /3) :
+    while sum(values) >= (maxValue /3):
         print("Beginn of the loop")
         bin = Bin()
         index_1 = 0
