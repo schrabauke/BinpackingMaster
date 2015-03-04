@@ -34,43 +34,52 @@ def exactfit(values, maxValue):
     values = sorted(values, reverse=True)
     bins = []
     while sum(values) >= (maxValue) :
-        print("Beginn of the loop")
+       # print("Beginn of the loop")
         bin = Bin()
         index_1 = 0
         bin.append(values.pop(index_1))
         if bin.sum == maxValue:
             bins.append(bin)
-        elif bin.sum <= (maxValue / 3):
+        if bin.sum <= (maxValue / 3):
             for item in values:
                 # print(item)
                 if bin.sum + item > (maxValue / 3) and bin.sum + item <= maxValue:
                     bin.append(item)
                     values.remove(item)
+                    alreadyinn = False
                     break
         # Step 2: fill the bin with 1, 2 or 3 items plus waste if needed
-        else:
+        if bin.sum > maxValue/3 and bin.sum < maxValue:
            # print ( "Start the helperfunction ")
             #  bin = Bin()
             waste = 0;
             while bin.sum != maxValue and waste < maxValue:
               #  print("Waste ", waste)
                 if (oneitemfit(waste, values, maxValue, bin, bins) == True):
+                    alreadyinn = True
                     break;
                 elif (twoitemfit(waste, values, maxValue, bin, bins) == True):
+                    alreadyinn = True
                     break;
                 elif (threeitemfit(waste, values, maxValue, bin, bins) == True):
+                    alreadyinn = True
                     break
                 else:
                     waste += 1;
             if (waste == maxValue):
+                alreadyinn = True
                 bins.append(bin)
     else:
         if len(values) == 0:
-            print("ende", len(bins) , " #Bins")
-           # for item in bins:
-           #     print(item)
+            if alreadyinn == False:
+                bins.append(bin)
+                print("ende", len(bins) , " #Bins")
+               # for item in bins:
+               #     print(item)
             return len(bins)
         else:
+            if alreadyinn == False:
+                bins.append(bin)
             bin = Bin()
             for item in values:
                 bin.append(item)

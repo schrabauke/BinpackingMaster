@@ -26,8 +26,10 @@ def castdata(list):
             i = i + 1
 
 tryi = glob.glob("C:/Users/Schrabauke/Desktop/PythonProjects/Data/*")
-for item in tryi:
-    data = open(item).read().split('\n')
+#for item in tryi:
+for x in range(110,210):
+    print(tryi[x])
+    data = open(tryi[x]).read().split('\n')
     castdata(data)
     elements = data.pop(0)
     binsize = data.pop(0)
