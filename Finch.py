@@ -40,42 +40,46 @@ def exactfit(values, maxValue):
         bin.append(values.pop(index_1))
         if bin.sum == maxValue:
             bins.append(bin)
-        if bin.sum <= (maxValue / 3):
+        while bin.sum <= (maxValue / 2):
             for item in values:
                 # print(item)
-                if bin.sum + item > (maxValue / 3) and bin.sum + item <= maxValue:
+                if bin.sum + item <= maxValue:     #bin.sum + item > (maxValue / 2) and
                     bin.append(item)
                     values.remove(item)
                     alreadyinn = False
                     break
         # Step 2: fill the bin with 1, 2 or 3 items plus waste if needed
-        if bin.sum > maxValue/3 and bin.sum < maxValue:
+        if bin.sum > maxValue/2 and bin.sum < maxValue:
            # print ( "Start the helperfunction ")
             #  bin = Bin()
-            waste = 0;
-            while bin.sum != maxValue and waste < maxValue:
-              #  print("Waste ", waste)
-                if (oneitemfit(waste, values, maxValue, bin, bins) == True):
-                    alreadyinn = True
-                    break;
-                elif (twoitemfit(waste, values, maxValue, bin, bins) == True):
-                    alreadyinn = True
-                    break;
-                elif (threeitemfit(waste, values, maxValue, bin, bins) == True):
-                    alreadyinn = True
-                    break
-                else:
-                    waste += 1;
-            if (waste == maxValue):
+           if min(values) > (maxValue-bin.sum):
                 alreadyinn = True
                 bins.append(bin)
+           else:
+                waste = 0;
+                while bin.sum != maxValue and waste < maxValue:
+                  #  print("Waste ", waste)
+                    if (oneitemfit(waste, values, maxValue, bin, bins) == True):
+                        alreadyinn = True
+                        break;
+                    elif (twoitemfit(waste, values, maxValue, bin, bins) == True):
+                        alreadyinn = True
+                        break;
+                    elif (threeitemfit(waste, values, maxValue, bin, bins) == True):
+                        alreadyinn = True
+                        break
+                    else:
+                        waste += 1;
+                if (waste == maxValue):
+                    alreadyinn = True
+                    bins.append(bin)
     else:
         if len(values) == 0:
             if alreadyinn == False:
                 bins.append(bin)
-                print("ende", len(bins) , " #Bins")
                # for item in bins:
                #     print(item)
+            print("ende", len(bins) , " #Bins")
             return len(bins)
         else:
             if alreadyinn == False:

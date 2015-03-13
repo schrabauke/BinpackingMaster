@@ -13,7 +13,18 @@ index_1 = 0
 index_2 = 0
 index_3 = 0
 
-# Index 2 erhöhen und index eins ganz lassen -> eine zwischenschleife mit index_2
+
+if 1 in aList:
+    print ("yes")
+
+test = filter(lambda x : x < 4, aList)
+
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+filter(lambda x : x < 4, a)
+
+
+# Index
+#  2 erhöhen und index eins ganz lassen -> eine zwischenschleife mit index_2
 # index kann den wert 10 bekommen -> index out of range error
 while index_1 < len(values) - 1:
     index_2 = index_1 + 1
