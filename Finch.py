@@ -40,6 +40,7 @@ def exactfit(values, maxValue):
         bin.append(values.pop(index_1))
         if bin.sum == maxValue:
             bins.append(bin)
+            alreadyinn = True
         while bin.sum <= (maxValue / 2):
             for item in values:
                 # print(item)
@@ -74,8 +75,9 @@ def exactfit(values, maxValue):
                     alreadyinn = True
                     bins.append(bin)
         else:
-            bins.append(bin)
-            alreadyinn = True
+            if alreadyinn == False:
+                bins.append(bin)
+                alreadyinn = True
     else:
         if len(values) == 0:
             if alreadyinn == False:

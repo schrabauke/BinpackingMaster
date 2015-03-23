@@ -9,7 +9,7 @@ from Finch import exactfit
 aList = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 10 , 5 ,4 ,6, 5,8,4, 9]
 maxValue = 10
 
-f = open('finch33.txt', 'w')
+f = open('finch22.txt', 'w')
 #test = exactfit(aList, maxValue)
 
 #Test real Data
@@ -27,7 +27,7 @@ def castdata(list):
 
 tryi = glob.glob("C:/Users/Schrabauke/Desktop/PythonProjects/Data/*")
 #for item in tryi: 57, 58 kritische
-for x in range(313,314):
+for x in range(310,510):
     print(tryi[x])
     data = open(tryi[x]).read().split('\n')
     castdata(data)
