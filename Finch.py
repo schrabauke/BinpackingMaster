@@ -73,6 +73,9 @@ def exactfit(values, maxValue):
                 if (waste == maxValue):
                     alreadyinn = True
                     bins.append(bin)
+        else:
+            bins.append(bin)
+            alreadyinn = True
     else:
         if len(values) == 0:
             if alreadyinn == False:
